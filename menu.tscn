@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://bou6nti23qghy"]
+
+[ext_resource type="FontFile" uid="uid://mw8nkl0681u2" path="res://TimmyFont-Regular (2).ttf" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://m3w4r4sp7wow" path="res://menu.gd" id="1_ytr4m"]
+[ext_resource type="Texture2D" uid="uid://bsixb2hdwkvy6" path="res://0001.png" id="2_4hy44"]
+[ext_resource type="Texture2D" uid="uid://c02jxfitdeq53" path="res://0002.png" id="3_ytr4m"]
+[ext_resource type="Texture2D" uid="uid://bhyrfv5hgvtbm" path="res://0003.png" id="4_l48gv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0200s"]
+font = ExtResource("1_lti8b")
+font_size = 72
+font_color = Color(0, 0, 0, 1)
+outline_size = 11
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0200s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_4hy44")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ytr4m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_l48gv")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Control" type="Control" unique_id=649392265]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ytr4m")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=683511898]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="." unique_id=56785744]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -490.5
+offset_top = 65.0
+offset_right = 490.5
+offset_bottom = 138.0
+grow_horizontal = 2
+text = "LITTLE GUY COUNTS TO ONE MILLION"
+label_settings = SubResource("LabelSettings_0200s")
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=193503526]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -15.5
+offset_right = 23.5
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 11
+theme_override_fonts/font = ExtResource("1_lti8b")
+theme_override_font_sizes/font_size = 106
+text = "PLAY"
+flat = true
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Button" unique_id=684765921]
+position = Vector2(450, 87.5)
+sprite_frames = SubResource("SpriteFrames_0200s")
+autoplay = "default"
+frame_progress = 0.7900171
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

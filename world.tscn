@@ -1,0 +1,66 @@
+[gd_scene format=3 uid="uid://bx8x0ok4f2rv5"]
+
+[ext_resource type="PackedScene" uid="uid://drjifmbypuj27" path="res://little_guy.tscn" id="1_f3sb7"]
+[ext_resource type="Script" uid="uid://dj17nnnmbh7ed" path="res://world.gd" id="1_fj7yv"]
+[ext_resource type="FontFile" uid="uid://mw8nkl0681u2" path="res://TimmyFont-Regular (2).ttf" id="3_tlwt5"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_fj7yv"]
+font = ExtResource("3_tlwt5")
+font_size = 56
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0200s"]
+size = Vector2(1181, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tlwt5"]
+size = Vector2(26, 683)
+
+[node name="World" type="Node2D" unique_id=426513959]
+script = ExtResource("1_fj7yv")
+
+[node name="CharacterBody2D" parent="." unique_id=225663 instance=ExtResource("1_f3sb7")]
+position = Vector2(593, 310)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1773940249]
+layer = -112
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1367691012]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=2047531266]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+label_settings = SubResource("LabelSettings_fj7yv")
+horizontal_alignment = 1
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1641254671]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1039040350]
+position = Vector2(581, -12)
+shape = SubResource("RectangleShape2D_0200s")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D" unique_id=1427791782]
+position = Vector2(581, 658)
+shape = SubResource("RectangleShape2D_0200s")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D" unique_id=2039802132]
+position = Vector2(-14, 327)
+shape = SubResource("RectangleShape2D_tlwt5")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D" unique_id=1038729182]
+position = Vector2(1167, 327)
+shape = SubResource("RectangleShape2D_tlwt5")
+
+[connection signal="_increase_score" from="." to="." method="_on__increase_score"]
+[connection signal="input_event" from="CharacterBody2D" to="CharacterBody2D" method="_input_event"]

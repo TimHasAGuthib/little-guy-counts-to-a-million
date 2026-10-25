@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://drjifmbypuj27"]
+
+[ext_resource type="Script" uid="uid://c7h1o0dw8hu4c" path="res://little_guy.gd" id="1_h6sbk"]
+[ext_resource type="Texture2D" uid="uid://bsixb2hdwkvy6" path="res://0001.png" id="2_uvxk7"]
+[ext_resource type="Texture2D" uid="uid://c02jxfitdeq53" path="res://0002.png" id="3_58nxg"]
+[ext_resource type="Texture2D" uid="uid://bhyrfv5hgvtbm" path="res://0003.png" id="4_4oiom"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qoy7d"]
+radius = 21.0
+height = 62.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0200s"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_uvxk7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_58nxg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4oiom")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="CharacterBody2D" type="CharacterBody2D" unique_id=225663]
+input_pickable = true
+script = ExtResource("1_h6sbk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2035743102]
+shape = SubResource("CapsuleShape2D_qoy7d")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=517424872]
+scale = Vector2(0.2, 0.2)
+sprite_frames = SubResource("SpriteFrames_0200s")
